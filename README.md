@@ -10,7 +10,7 @@ See [binary_search_tree.h](binary_search_tree.h).
 
 ## Test file
 
-A simple test program utilizing bst that creates a binary tree out of command line arguments and then lets user check if a node exists. See [test.c](test.c)
+A simple test program utilizing binary search tree. Creates a binary tree consisting of command line arguments and then lets the user check if a value exists. See [test.c](test.c)
 
 Compile with:
 

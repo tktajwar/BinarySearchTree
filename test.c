@@ -19,6 +19,9 @@ int main(int argc, char *argv[])
 			bst_free(new_node);     /* free if fails */
 	}
 
+	/* print the tree */
+	bst_print(head);
+
 	/* search for node with value */
 	int search_val;
 	printf("Search: ");

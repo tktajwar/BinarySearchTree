@@ -68,4 +68,13 @@ struct bst* bst_search(struct bst *node, int value);
 
 void bst_free(struct bst *node);
 
+/* Function: bst_print
+ * -------------------
+ *  print each node in the tree
+ *
+ *  bst *node: the head node of the binary tree
+ */
+
+void bst_print(struct bst *node);
+
 #endif

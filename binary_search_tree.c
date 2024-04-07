@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "binary_search_tree.h"
@@ -56,4 +57,33 @@ void bst_free(struct bst *node)
 		bst_free(node->smaller);
 	/* free self */
 	free(node);
+}
+
+void bst_print(struct bst *node)
+{
+	if (node == NULL)
+		return;
+
+	/* print larger/left child */
+	if (node->larger) {
+		printf("  %d\n", node->larger->val);
+		printf(" /\n");
+	}
+	else
+		printf(" (NULL)\n");
+
+	/* print self */
+	printf("%d\n", node->val);
+
+	/* print larger/left child */
+	if (node->smaller) {
+		printf(" \\\n");
+		printf("  %d\n", node->smaller->val);
+	}
+	else
+		printf(" (NULL)\n");
+
+	/* recurse through children */
+	bst_print(node->larger);
+	bst_print(node->smaller);
 }

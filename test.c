@@ -30,5 +30,8 @@ int main(int argc, char *argv[])
 		printf("Search: ");
 	}
 
+	/* free the binary tree */
+	bst_free(head);
+
 	return 0;
 }

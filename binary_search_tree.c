@@ -9,6 +9,7 @@ struct bst* bst_create(int value)
 	node->val = value;
 	node->larger = NULL;
 	node->smaller = NULL;
+	node->parent = NULL;
 	return node;
 }
 
@@ -19,14 +20,18 @@ int bst_insert(struct bst *node, struct bst *new_node)
 	if (new_node->val > node->val) {
 		if (node->larger)
 			return bst_insert(node->larger, new_node);
-		else
+		else {
 			node->larger = new_node;
+			new_node->parent = node;
+		}
 	}
 	else {
 		if (node->smaller)
 			return bst_insert(node->smaller, new_node);
-		else
+		else {
 			node->smaller = new_node;
+			new_node->parent = node;
+		}
 	}
 	return 0;
 }
@@ -66,19 +71,22 @@ void bst_print(struct bst *node)
 
 	/* print larger/left child */
 	if (node->larger) {
-		printf("  %d\n", node->larger->val);
-		printf(" /\n");
+		printf("      %d\n", node->larger->val);
+		printf("     /\n");
 	}
 	else
 		printf(" (NULL)\n");
 
-	/* print self */
-	printf("%d\n", node->val);
+	/* print parent and self */
+	if (node->parent)
+		printf("%d - %d\n", node->parent->val, node->val);
+	else
+		printf("     %d\n", node->val);
 
 	/* print larger/left child */
 	if (node->smaller) {
-		printf(" \\\n");
-		printf("  %d\n", node->smaller->val);
+		printf("     \\\n");
+		printf("      %d\n", node->smaller->val);
 	}
 	else
 		printf(" (NULL)\n");

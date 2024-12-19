@@ -9,6 +9,7 @@
  *  int val:      value stored in the node
  *  bst *larger:  link to child with larger val than self
  *  bst *smaller: link to child with smaller val than self
+ *  bst *parent:  link to the parent node
  */
 
 struct bst
@@ -16,6 +17,7 @@ struct bst
 	int val;
 	struct bst *larger;
 	struct bst *smaller;
+	struct bst *parent;
 };
 
 /*
